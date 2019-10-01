@@ -97,10 +97,10 @@ void CMainFrame::OnNcPaint()
 	CWindowDC dc(this);
 	CRect rcWnd;
 	GetWindowRect(&rcWnd);
-	m_imgBorder.Draw(dc.m_hDC, 0, 0, rcWnd.Width(), 2);
-	m_imgBorder.Draw(dc.m_hDC, 0, 0, 2, rcWnd.Width());
-	m_imgBorder.Draw(dc.m_hDC, rcWnd.right - 2, 0, rcWnd.Height(), rcWnd.Width());
-	m_imgBorder.Draw(dc.m_hDC, 0, rcWnd.bottom - 2, rcWnd.Height(), rcWnd.Width());
+	m_imgBorder.Draw(dc.m_hDC, 0, 0, rcWnd.Width(), 1);
+	m_imgBorder.Draw(dc.m_hDC, 0, 0, 1, rcWnd.Width());
+	m_imgBorder.Draw(dc.m_hDC, rcWnd.right - 1, 0, rcWnd.Height(), rcWnd.Width());
+	m_imgBorder.Draw(dc.m_hDC, 0, rcWnd.bottom - 1, rcWnd.Height(), rcWnd.Width());
 }
 
 

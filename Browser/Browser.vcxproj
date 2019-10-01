@@ -99,6 +99,9 @@
     <None Include="res\Browser.ico" />
     <None Include="res\Browser.rc2" />
     <None Include="res\caption.bmp" />
+    <None Include="res\idb_closebtn.bmp" />
+    <None Include="res\idb_maxbtn.bmp" />
+    <None Include="res\idb_minbtn.bmp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Browser.h" />
@@ -106,6 +109,7 @@
     <ClInclude Include="CaptionLeftPanel.h" />
     <ClInclude Include="CaptionPanel.h" />
     <ClInclude Include="CaptionRightPanel.h" />
+    <ClInclude Include="ImageButton.h" />
     <ClInclude Include="MainFrame.h" />
     <ClInclude Include="Panel.h" />
     <ClInclude Include="Resource.h" />
@@ -118,6 +122,7 @@
     <ClCompile Include="CaptionLeftPanel.cpp" />
     <ClCompile Include="CaptionPanel.cpp" />
     <ClCompile Include="CaptionRightPanel.cpp" />
+    <ClCompile Include="ImageButton.cpp" />
     <ClCompile Include="MainFrame.cpp" />
     <ClCompile Include="Panel.cpp" />
     <ClCompile Include="stdafx.cpp">

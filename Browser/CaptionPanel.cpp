@@ -29,9 +29,9 @@ int CCaptionPanel::OnCreate(LPCREATESTRUCT lpCreateStruct)
 		return 0;
 	if(m_captionRightPanel.m_hWnd)
 		return 0;
-	m_captionLeftPanel.Create(_T("CaptionLeftPanel"), WS_CHILD | WS_VISIBLE, CRect(0, 0, lpCreateStruct->cx - 290, lpCreateStruct->cy), this, 10001);
-	m_captionCenterPanel.Create(_T("CaptionCenterPanel"), WS_CHILD | WS_VISIBLE, CRect(lpCreateStruct->cx - 290, 0, lpCreateStruct->cx - 50, lpCreateStruct->cy), this, 10002);
-	m_captionRightPanel.Create(_T("CaptionRightPanel"), WS_CHILD | WS_VISIBLE, CRect(lpCreateStruct->cx - 50, 0, lpCreateStruct->cx, lpCreateStruct->cy), this, 10003);
+	m_captionLeftPanel.Create(_T("CaptionLeftPanel"), WS_CHILD | WS_VISIBLE, CRect(0, 0, lpCreateStruct->cx - 343, lpCreateStruct->cy), this, 10001);
+	m_captionCenterPanel.Create(_T("CaptionCenterPanel"), WS_CHILD | WS_VISIBLE, CRect(lpCreateStruct->cx - 343, 0, lpCreateStruct->cx - 103, lpCreateStruct->cy), this, 10002);
+	m_captionRightPanel.Create(_T("CaptionRightPanel"), WS_CHILD | WS_VISIBLE, CRect(lpCreateStruct->cx - 103, 0, lpCreateStruct->cx, lpCreateStruct->cy), this, 10003);
 	return 0;
 }
 
@@ -47,7 +47,7 @@ void CCaptionPanel::OnSize(UINT nType, int cx, int cy)
 		return ;
 	CRect rcClient;
 	GetWindowRect(rcClient);
-	m_captionLeftPanel.MoveWindow(CRect(0, 0, rcClient.Width() - 290, rcClient.Height()));
-	m_captionCenterPanel.MoveWindow(CRect(rcClient.Width() - 290, 0, rcClient.Width() - 50, rcClient.Height()));
-	m_captionRightPanel.MoveWindow(CRect(rcClient.Width() - 50, 0, rcClient.Width(), rcClient.Height()));
+	m_captionLeftPanel.MoveWindow(CRect(0, 0, rcClient.Width() - 343, rcClient.Height()));
+	m_captionCenterPanel.MoveWindow(CRect(rcClient.Width() - 343, 0, rcClient.Width() - 103, rcClient.Height()));
+	m_captionRightPanel.MoveWindow(CRect(rcClient.Width() - 103, 0, rcClient.Width(), rcClient.Height()));
 }

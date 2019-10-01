@@ -28,6 +28,15 @@
     <None Include="res\caption.bmp">
       <Filter>资源文件</Filter>
     </None>
+    <None Include="res\idb_maxbtn.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\idb_closebtn.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\idb_minbtn.bmp">
+      <Filter>资源文件</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Browser.h">
@@ -60,6 +69,9 @@
     <ClInclude Include="CaptionRightPanel.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="ImageButton.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Browser.cpp">
@@ -84,6 +96,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="CaptionRightPanel.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageButton.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
