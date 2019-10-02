@@ -2,12 +2,15 @@
 #include "Resource.h"
 #include "Browser.h"
 #include "MainFrame.h"
+#define IDC_CAPTIONPANEL 10001
+#define IDC_TOOLPANEL 10002
 
 IMPLEMENT_DYNAMIC(CMainFrame, CWnd)
 
 CMainFrame::CMainFrame()
 {
 	m_captionPanel.m_hWnd = NULL;
+	m_toolPanel.m_hWnd = NULL;
 }
 
 CMainFrame::~CMainFrame()
@@ -62,8 +65,8 @@ void CMainFrame::PostNcDestroy()
 
 void CMainFrame::OnGetMinMaxInfo(MINMAXINFO* lpMMI)
 {
-	lpMMI->ptMinTrackSize.x = 550;
-	lpMMI->ptMinTrackSize.y = 320;
+	lpMMI->ptMinTrackSize.x = 700;
+	lpMMI->ptMinTrackSize.y = 700 * 0.618;
 	lpMMI->ptMaxPosition.x = 0;
 	lpMMI->ptMaxPosition.y = 0;
 	CRect rcWorkArea;
@@ -113,6 +116,11 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 		return 0;
 	if(m_captionPanel.m_hWnd)
 		return 0;
+	if(m_toolPanel.m_hWnd)
+		return 0;
+	m_imgBorder.LoadFromResource(AfxGetInstanceHandle(), IDB_BITMAP_BACKGROUND);
+	m_captionPanel.Create(_T("CAPTIONPANEL"), WS_CHILD | WS_VISIBLE, CRect(0, 0, lpCreateStruct->cx, 27), this, IDC_CAPTIONPANEL);
+	m_toolPanel.Create(_T("TOOLPANEL"), WS_CHILD | WS_VISIBLE, CRect(0, 0, lpCreateStruct->cx, 27), this, IDC_TOOLPANEL);
 	// ±ß¿òÒõÓ°ÎÊÌâ
 	HINSTANCE hInst = LoadLibrary(_T("UxTheme.dll"));
 	if(hInst)
@@ -137,8 +145,6 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 		}
 		FreeLibrary(hInst);
 	}
-	m_captionPanel.Create(_T("SD"), WS_CHILD | WS_VISIBLE, CRect(0, 0, lpCreateStruct->cx, 25), this, 10001);
-	m_imgBorder.LoadFromResource(AfxGetInstanceHandle(), IDB_BITMAP_BACKGROUND);
 	return 0;
 }
 
@@ -148,10 +154,17 @@ void CMainFrame::OnSize(UINT nType, int cx, int cy)
 	CWnd::OnSize(nType, cx, cy);
 	if(m_captionPanel.m_hWnd == NULL)
 		return ;
+	if(m_toolPanel.m_hWnd == NULL)
+		return ;
 	CRect rcClient;
 	GetClientRect(rcClient);
-	rcClient.bottom = 25;
-	m_captionPanel.MoveWindow(rcClient);
+	CRect rcCaptionPanel = rcClient;
+	rcCaptionPanel.bottom = 27;
+	m_captionPanel.MoveWindow(rcCaptionPanel);
+	CRect rcToolPanel = rcClient;
+	rcToolPanel.top = 27;
+	rcToolPanel.bottom = 78;
+	m_toolPanel.MoveWindow(rcToolPanel);
 }
 
 

@@ -52,7 +52,7 @@ void CCaptionLeftPanel::OnPaint()
 		if(strText.IsEmpty())
 			return ;
 		CRect rcText = rcClient;
-		rcText.left = 25;
+		rcText.left = 27;
 		int nOldBkMode = dc.SetBkMode(TRANSPARENT);
 		dc.DrawText(strText, rcText, DT_LEFT | DT_VCENTER | DT_SINGLELINE | DT_WORD_ELLIPSIS);
 		dc.SetBkMode(nOldBkMode);
@@ -90,11 +90,45 @@ void CCaptionLeftPanel::OnContextMenu(CWnd* pWnd, CPoint point)
 		CMenu *pSysMenu = pMainFrame->GetSystemMenu(0);
 		if(pSysMenu)
 		{
+			UpdateSystemMenu(pSysMenu);
 			int nID = pSysMenu->TrackPopupMenu(TPM_LEFTALIGN | TPM_LEFTBUTTON | TPM_RETURNCMD, point.x, point.y, pMainFrame);
 			if(nID > 0)
 			{
 				pMainFrame->SendMessage(WM_SYSCOMMAND, nID, 0);
 			}
 		}
+	}
+}
+
+void CCaptionLeftPanel::UpdateSystemMenu(CMenu *pMenu)
+{
+	if(AfxGetMainWnd()->IsIconic())
+		return ;
+	CString strMenuText;
+	if(AfxGetMainWnd()->IsZoomed())
+	{
+		pMenu->GetMenuString(SC_RESTORE, strMenuText, MF_BYCOMMAND);
+		pMenu->ModifyMenu(SC_RESTORE, MF_STRING | MF_ENABLED, SC_RESTORE, strMenuText);
+		pMenu->GetMenuString(SC_MINIMIZE, strMenuText, MF_BYCOMMAND);
+		pMenu->ModifyMenu(SC_MINIMIZE, MF_STRING | MF_ENABLED, SC_MINIMIZE, strMenuText);
+		pMenu->GetMenuString(SC_MAXIMIZE, strMenuText, MF_BYCOMMAND);
+		pMenu->ModifyMenu(SC_MAXIMIZE, MF_STRING | MF_GRAYED, SC_MAXIMIZE, strMenuText);
+		pMenu->GetMenuString(SC_SIZE, strMenuText, MF_BYCOMMAND);
+		pMenu->ModifyMenu(SC_SIZE, MF_STRING | MF_GRAYED, SC_SIZE, strMenuText);
+		pMenu->GetMenuString(SC_MOVE, strMenuText, MF_BYCOMMAND);
+		pMenu->ModifyMenu(SC_MOVE, MF_STRING | MF_GRAYED, SC_MOVE, strMenuText);
+	}
+	else
+	{
+		pMenu->GetMenuString(SC_RESTORE, strMenuText, MF_BYCOMMAND);
+		pMenu->ModifyMenu(SC_RESTORE, MF_STRING | MF_GRAYED, SC_RESTORE, strMenuText);
+		pMenu->GetMenuString(SC_MINIMIZE, strMenuText, MF_BYCOMMAND);
+		pMenu->ModifyMenu(SC_MINIMIZE, MF_STRING | MF_ENABLED, SC_MINIMIZE, strMenuText);
+		pMenu->GetMenuString(SC_MAXIMIZE, strMenuText, MF_BYCOMMAND);
+		pMenu->ModifyMenu(SC_MAXIMIZE, MF_STRING | MF_ENABLED, SC_MAXIMIZE, strMenuText);
+		pMenu->GetMenuString(SC_SIZE, strMenuText, MF_BYCOMMAND);
+		pMenu->ModifyMenu(SC_SIZE, MF_STRING | MF_GRAYED, SC_SIZE, strMenuText);
+		pMenu->GetMenuString(SC_MOVE, strMenuText, MF_BYCOMMAND);
+		pMenu->ModifyMenu(SC_MOVE, MF_STRING | MF_ENABLED, SC_MOVE, strMenuText);
 	}
 }

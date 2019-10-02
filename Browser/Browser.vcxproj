@@ -99,11 +99,25 @@
     <None Include="res\Browser.ico" />
     <None Include="res\Browser.rc2" />
     <None Include="res\caption.bmp" />
+    <None Include="res\idb_backworld.bmp" />
     <None Include="res\idb_closebtn.bmp" />
+    <None Include="res\idb_combobox.bmp" />
+    <None Include="res\idb_combobox_go.bmp" />
+    <None Include="res\idb_combobox_go.png" />
+    <None Include="res\idb_combobox_thump.bmp" />
+    <None Include="res\idb_favorite.bmp" />
+    <None Include="res\idb_forward.bmp" />
+    <None Include="res\idb_homepage.bmp" />
     <None Include="res\idb_maxbtn.bmp" />
     <None Include="res\idb_minbtn.bmp" />
+    <None Include="res\idb_refresh.bmp" />
+    <None Include="res\idb_restore.bmp" />
+    <None Include="res\idb_stop.bmp" />
+    <None Include="res\idb_toolbar.bmp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AddressBar.h" />
+    <ClInclude Include="AddressComboBox.h" />
     <ClInclude Include="Browser.h" />
     <ClInclude Include="CaptionCenterPanel.h" />
     <ClInclude Include="CaptionLeftPanel.h" />
@@ -111,12 +125,16 @@
     <ClInclude Include="CaptionRightPanel.h" />
     <ClInclude Include="ImageButton.h" />
     <ClInclude Include="MainFrame.h" />
+    <ClInclude Include="MainToolBar.h" />
     <ClInclude Include="Panel.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="ToolPanel.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AddressBar.cpp" />
+    <ClCompile Include="AddressComboBox.cpp" />
     <ClCompile Include="Browser.cpp" />
     <ClCompile Include="CaptionCenterPanel.cpp" />
     <ClCompile Include="CaptionLeftPanel.cpp" />
@@ -124,11 +142,13 @@
     <ClCompile Include="CaptionRightPanel.cpp" />
     <ClCompile Include="ImageButton.cpp" />
     <ClCompile Include="MainFrame.cpp" />
+    <ClCompile Include="MainToolBar.cpp" />
     <ClCompile Include="Panel.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="ToolPanel.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Browser.rc" />

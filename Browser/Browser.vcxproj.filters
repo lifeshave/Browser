@@ -37,6 +37,42 @@
     <None Include="res\idb_minbtn.bmp">
       <Filter>资源文件</Filter>
     </None>
+    <None Include="res\idb_backworld.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\idb_stop.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\idb_refresh.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\idb_forward.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\idb_restore.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\idb_favorite.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\idb_homepage.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\idb_toolbar.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\idb_combobox_go.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\idb_combobox_go.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\idb_combobox.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\idb_combobox_thump.bmp">
+      <Filter>资源文件</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Browser.h">
@@ -72,6 +108,18 @@
     <ClInclude Include="ImageButton.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="ToolPanel.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="MainToolBar.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="AddressBar.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="AddressComboBox.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Browser.cpp">
@@ -99,6 +147,18 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="ImageButton.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ToolPanel.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="MainToolBar.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="AddressBar.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="AddressComboBox.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

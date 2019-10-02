@@ -3,6 +3,8 @@
 class CCaptionLeftPanel : public CPanel
 {
 public:
+	void UpdateSystemMenu(CMenu *pMenu);
+public:
 	CCaptionLeftPanel(void);
 	~CCaptionLeftPanel(void);
 	DECLARE_MESSAGE_MAP()

@@ -53,11 +53,11 @@ int CCaptionRightPanel::OnCreate(LPCREATESTRUCT lpCreateStruct)
 		return 0;
 
 	m_imgCaption.LoadFromResource(AfxGetInstanceHandle(), IDB_BITMAP_CAPTION);
-	m_imgMinBtn.Create(_T(""), WS_CHILD | WS_VISIBLE, CRect(0, 0, 31, 25), this, IDC_MIN_BTN);
+	m_imgMinBtn.Create(_T(""), WS_CHILD | WS_VISIBLE, CRect(0, 0, 31, 27), this, IDC_MIN_BTN);
 	m_imgMinBtn.SetImage(IDB_BITMAP_MIN_BTN);
-	m_imgMaxBtn.Create(_T(""), WS_CHILD | WS_VISIBLE, CRect(31, 0, 63, 25), this, IDC_MAX_BTN);
+	m_imgMaxBtn.Create(_T(""), WS_CHILD | WS_VISIBLE, CRect(31, 0, 63, 27), this, IDC_MAX_BTN);
 	m_imgMaxBtn.SetImage(IDB_BITMAP_MAX_BTN);
-	m_imgCloseBtn.Create(_T(""), WS_CHILD | WS_VISIBLE, CRect(63, 0, 103, 25), this, IDC_CLOSE_BTN);
+	m_imgCloseBtn.Create(_T(""), WS_CHILD | WS_VISIBLE, CRect(63, 0, 103, 27), this, IDC_CLOSE_BTN);
 	m_imgCloseBtn.SetImage(IDB_BITMAP_CLOSE_BTN);
 	return 0;
 }

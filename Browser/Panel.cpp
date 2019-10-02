@@ -57,7 +57,7 @@ BOOL CPanel::PreCreateWindow(CREATESTRUCT& cs)
 	wcex.hIcon = (HICON)AfxGetApp()->LoadIcon( MAKEINTRESOURCE(IDR_MAINFRAME));
 	wcex.hCursor = wcex.hIconSm = (HCURSOR)LoadCursor(NULL,IDC_ARROW);
 	// wcex.hCursor = (HCURSOR)theApp->LoadStandardCursor(IDC_ARROW);
-	wcex.hbrBackground = (HBRUSH)GetStockObject(WHITE_BRUSH);
+	wcex.hbrBackground = (HBRUSH)GetStockObject(NULL_BRUSH);
 	wcex.lpszMenuName = NULL;
 	wcex.lpszClassName = cs.lpszClass;
 	bRet = RegisterClassEx(&wcex);
