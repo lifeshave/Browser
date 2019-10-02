@@ -20,6 +20,7 @@ BEGIN_MESSAGE_MAP(CMainFrame, CWnd)
 	ON_WM_NCPAINT()
 	ON_WM_CREATE()
 	ON_WM_SIZE()
+	ON_WM_NCACTIVATE()
 END_MESSAGE_MAP()
 
 BOOL CMainFrame::PreCreateWindow(CREATESTRUCT& cs)
@@ -97,10 +98,10 @@ void CMainFrame::OnNcPaint()
 	CWindowDC dc(this);
 	CRect rcWnd;
 	GetWindowRect(&rcWnd);
-	m_imgBorder.Draw(dc.m_hDC, 0, 0, rcWnd.Width(), 1);
-	m_imgBorder.Draw(dc.m_hDC, 0, 0, 1, rcWnd.Width());
-	m_imgBorder.Draw(dc.m_hDC, rcWnd.right - 1, 0, rcWnd.Height(), rcWnd.Width());
-	m_imgBorder.Draw(dc.m_hDC, 0, rcWnd.bottom - 1, rcWnd.Height(), rcWnd.Width());
+	m_imgBorder.Draw(dc.m_hDC, 0, 0, rcWnd.Width(), 2);
+	m_imgBorder.Draw(dc.m_hDC, 0, 0, 2, rcWnd.Width());
+	m_imgBorder.Draw(dc.m_hDC, rcWnd.right - 2, 0, rcWnd.Height(), rcWnd.Width());
+	m_imgBorder.Draw(dc.m_hDC, 0, rcWnd.bottom - 2, rcWnd.Height(), rcWnd.Width());
 }
 
 
@@ -112,6 +113,30 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 		return 0;
 	if(m_captionPanel.m_hWnd)
 		return 0;
+	// ±ß¿òÒõÓ°ÎÊÌâ
+	HINSTANCE hInst = LoadLibrary(_T("UxTheme.dll"));
+	if(hInst)
+	{
+		typedef HRESULT (WINAPI *PFUN_SetWindowTheme)(HWND, LPCTSTR, LPCTSTR);
+		PFUN_SetWindowTheme pFun = (PFUN_SetWindowTheme)GetProcAddress(hInst, "SetWindowTheme");
+		if(pFun)
+		{
+			pFun(m_hWnd, _T(""), _T(""));
+		}
+		FreeLibrary(hInst);
+	}
+	hInst = LoadLibrary(_T("dwmapi.dll"));
+	if(hInst)
+	{
+		typedef HRESULT (WINAPI *TmpFun)(HWND, DWORD, LPCVOID, DWORD);
+		TmpFun pDwnSetWindowAttrbuteEx = (TmpFun)GetProcAddress(hInst, "DwnSetWindowAttrbute");
+		if(pDwnSetWindowAttrbuteEx)
+		{
+			DWORD dwAttr = 1;
+			pDwnSetWindowAttrbuteEx(GetSafeHwnd(), 2, &dwAttr, 4);
+		}
+		FreeLibrary(hInst);
+	}
 	m_captionPanel.Create(_T("SD"), WS_CHILD | WS_VISIBLE, CRect(0, 0, lpCreateStruct->cx, 25), this, 10001);
 	m_imgBorder.LoadFromResource(AfxGetInstanceHandle(), IDB_BITMAP_BACKGROUND);
 	return 0;
@@ -127,4 +152,13 @@ void CMainFrame::OnSize(UINT nType, int cx, int cy)
 	GetClientRect(rcClient);
 	rcClient.bottom = 25;
 	m_captionPanel.MoveWindow(rcClient);
+}
+
+
+BOOL CMainFrame::OnNcActivate(BOOL bActive)
+{
+	BOOL bRet = CWnd::OnNcActivate(bActive);
+	SendMessage(WM_NCPAINT, 0, 0);
+	Invalidate();
+	return bRet;
 }
