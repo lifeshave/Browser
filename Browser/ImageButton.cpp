@@ -66,6 +66,7 @@ void CImageButton::SetImage(UINT uIDResource)
 		m_imgButton.Destroy();
 	}
 	m_imgButton.LoadFromResource(AfxGetInstanceHandle(), uIDResource);
+	Invalidate();
 }
 
 void CImageButton::OnPaint()

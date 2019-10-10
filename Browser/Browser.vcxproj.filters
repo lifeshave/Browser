@@ -73,6 +73,15 @@
     <None Include="res\idb_combobox_thump.bmp">
       <Filter>资源文件</Filter>
     </None>
+    <None Include="res\idb_searchbar_go.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\idi_baidu.ico">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\idi_google.ico">
+      <Filter>资源文件</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Browser.h">
@@ -120,6 +129,15 @@
     <ClInclude Include="AddressComboBox.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="SearchBar.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="IconButton.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuEx.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Browser.cpp">
@@ -159,6 +177,15 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="AddressComboBox.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SearchBar.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="IconButton.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuEx.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
