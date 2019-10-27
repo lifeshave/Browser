@@ -4,6 +4,7 @@
 #include "MainFrame.h"
 #define IDC_CAPTIONPANEL 10001
 #define IDC_TOOLPANEL 10002
+#define IDC_TABPANEL 10003
 
 IMPLEMENT_DYNAMIC(CMainFrame, CWnd)
 
@@ -11,6 +12,7 @@ CMainFrame::CMainFrame()
 {
 	m_captionPanel.m_hWnd = NULL;
 	m_toolPanel.m_hWnd = NULL;
+	m_tabPanel.m_hWnd = NULL;
 }
 
 CMainFrame::~CMainFrame()
@@ -66,7 +68,7 @@ void CMainFrame::PostNcDestroy()
 void CMainFrame::OnGetMinMaxInfo(MINMAXINFO* lpMMI)
 {
 	lpMMI->ptMinTrackSize.x = 700;
-	lpMMI->ptMinTrackSize.y = 700 * 0.618;
+	lpMMI->ptMinTrackSize.y = (LONG)(700 * 0.618);
 	lpMMI->ptMaxPosition.x = 0;
 	lpMMI->ptMaxPosition.y = 0;
 	CRect rcWorkArea;
@@ -118,9 +120,12 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 		return 0;
 	if(m_toolPanel.m_hWnd)
 		return 0;
+	if(m_tabPanel.m_hWnd)
+		return 0;
 	m_imgBorder.LoadFromResource(AfxGetInstanceHandle(), IDB_BITMAP_BACKGROUND);
 	m_captionPanel.Create(_T("CAPTIONPANEL"), WS_CHILD | WS_VISIBLE, CRect(0, 0, lpCreateStruct->cx, 27), this, IDC_CAPTIONPANEL);
-	m_toolPanel.Create(_T("TOOLPANEL"), WS_CHILD | WS_VISIBLE, CRect(0, 0, lpCreateStruct->cx, 27), this, IDC_TOOLPANEL);
+	m_toolPanel.Create(_T("TOOLPANEL"), WS_CHILD | WS_VISIBLE, CRect(0, 27, lpCreateStruct->cx, 78), this, IDC_TOOLPANEL);
+	m_tabPanel.Create(_T("TABPANEL"), WS_CHILD | WS_VISIBLE, CRect(0, 78, lpCreateStruct->cx, 107), this, IDC_TABPANEL);
 	// ±ﬂøÚ“ı”∞Œ Ã‚
 	HINSTANCE hInst = LoadLibrary(_T("UxTheme.dll"));
 	if(hInst)
@@ -165,6 +170,12 @@ void CMainFrame::OnSize(UINT nType, int cx, int cy)
 	rcToolPanel.top = 27;
 	rcToolPanel.bottom = 78;
 	m_toolPanel.MoveWindow(rcToolPanel);
+	if(!m_tabPanel.m_hWnd)
+		return ;
+	CRect rcTabPanel = rcClient;
+	rcTabPanel.top = 78;
+	rcTabPanel.bottom = 107;
+	m_tabPanel.MoveWindow(rcTabPanel);
 }
 
 

@@ -114,6 +114,13 @@
     <None Include="res\idb_restore.bmp" />
     <None Include="res\idb_searchbar_go.bmp" />
     <None Include="res\idb_stop.bmp" />
+    <None Include="res\idb_tabbar.bmp" />
+    <None Include="res\idb_tabbutton.bmp" />
+    <None Include="res\idb_tabbutton_close.bmp" />
+    <None Include="res\idb_tabbutton_fullscreen.bmp" />
+    <None Include="res\idb_tabbutton_left.bmp" />
+    <None Include="res\idb_tabbutton_new.bmp" />
+    <None Include="res\idb_tabbutton_right.bmp" />
     <None Include="res\idb_toolbar.bmp" />
     <None Include="res\idi_baidu.ico" />
     <None Include="res\idi_google.ico" />
@@ -135,6 +142,10 @@
     <ClInclude Include="Resource.h" />
     <ClInclude Include="SearchBar.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="TabButton.h" />
+    <ClInclude Include="TabCtrlEx.h" />
+    <ClInclude Include="TabManager.h" />
+    <ClInclude Include="TabPanel.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="ToolPanel.h" />
   </ItemGroup>
@@ -157,6 +168,10 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="TabButton.cpp" />
+    <ClCompile Include="TabCtrlEx.cpp" />
+    <ClCompile Include="TabManager.cpp" />
+    <ClCompile Include="TabPanel.cpp" />
     <ClCompile Include="ToolPanel.cpp" />
   </ItemGroup>
   <ItemGroup>

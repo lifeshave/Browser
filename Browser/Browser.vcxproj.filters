@@ -82,6 +82,27 @@
     <None Include="res\idi_google.ico">
       <Filter>资源文件</Filter>
     </None>
+    <None Include="res\idb_tabbar.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\idb_tabbutton.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\idb_tabbutton_close.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\idb_tabbutton_fullscreen.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\idb_tabbutton_left.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\idb_tabbutton_new.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\idb_tabbutton_right.bmp">
+      <Filter>资源文件</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Browser.h">
@@ -138,6 +159,18 @@
     <ClInclude Include="MenuEx.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="TabPanel.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TabCtrlEx.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TabManager.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TabButton.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Browser.cpp">
@@ -186,6 +219,18 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="MenuEx.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="TabPanel.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="TabCtrlEx.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="TabManager.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="TabButton.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

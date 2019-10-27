@@ -16,7 +16,6 @@ CAddressBar::~CAddressBar(void)
 BEGIN_MESSAGE_MAP(CAddressBar, CPanel)
 	ON_WM_CREATE()
 	ON_WM_PAINT()
-
 	ON_WM_SIZE()
 END_MESSAGE_MAP()
 
@@ -74,3 +73,4 @@ void CAddressBar::OnSize(UINT nType, int cx, int cy)
 	m_addressComboBox.MoveWindow(CRect(20, 11, rcClient.Width() - 22, 200));
 	m_btnGo.MoveWindow(CRect(rcClient.Width() - 22, 11, rcClient.Width(), 39));
 }
+

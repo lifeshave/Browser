@@ -3,6 +3,7 @@
 #include "Panel.h"
 #include "CaptionPanel.h"
 #include "ToolPanel.h"
+#include "TabPanel.h"
 
 class CMainFrame : public CWnd
 {
@@ -15,6 +16,7 @@ public:
 	CCaptionPanel m_captionPanel;
 	CImage m_imgBorder;
 	CToolPanel m_toolPanel;
+	CTabPanel m_tabPanel;
 protected:
 	DECLARE_MESSAGE_MAP()
 	virtual BOOL PreCreateWindow(CREATESTRUCT& cs);
